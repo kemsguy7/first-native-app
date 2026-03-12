@@ -5,7 +5,7 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>My first react native app.</Text>
-      <Link href='/about' style={styles.button}>
+      <Link href='/tabs/about' style={styles.button}>
         Go to About screen
       </Link>
     </View>
@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
   button: {
     fontSize: 20,
     textDecorationLine: 'underline',
+
     color: '#fff',
   },
 });
