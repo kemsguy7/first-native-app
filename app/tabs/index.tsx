@@ -1,8 +1,9 @@
+import Button from '@/components/Button';
 import { Link } from 'expo-router';
-import { StyleSheet, Text, View } from 'react-native';
-import ImageViewer from '@/components/ImageViewer';
+import { StyleSheet, View } from 'react-native';
+import ImageViewer from '../../components/ImageViewer';
 
-const placeHolderImage = require('@/assets/images/background-image.png');
+const placeHolderImage = require('../../assets/images/background-image.png');
 
 export default function Index() {
   return (
@@ -10,7 +11,11 @@ export default function Index() {
       <View style={styles.imageContainer}>
         <ImageViewer imgSource={placeHolderImage} />
       </View>
-      <Text style={styles.text}>My first react native app.</Text>
+      <View style={styles.footerContainer}>
+        <Button theme='primary' label='Choose a photo' />
+        <Button label='Use this photo' />
+      </View>
+      {/* <Text style={styles.text}>My first react native app.</Text> */}
       <Link href='/tabs/about' style={styles.button}>
         Go to About screen
       </Link>
@@ -27,6 +32,11 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     flex: 1,
+    paddingTop: 28,
+  },
+  footerContainer: {
+    flex: 1 / 3,
+    alignItems: 'center',
   },
   image: {
     width: 320,

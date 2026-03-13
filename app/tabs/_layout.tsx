@@ -29,7 +29,7 @@ export default function TabLayout() {
         name='about'
         options={{
           title: 'About',
-          tabBarIcon: ({ color, focused }) => (
+          tabBarIcon: ({ color = 'yellow', focused }) => (
             <Ionicons
               name={focused ? 'information-circle' : 'information-circle-outline'}
               color={color}
