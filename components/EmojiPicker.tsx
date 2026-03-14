@@ -1,7 +1,7 @@
-import { Modal, View, Text, Pressable, StyleSheet } from 'react-native';
+import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { PropsWithChildren } from 'react';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { PropsWithChildren } from 'react';
 
 type Props = PropsWithChildren<{
   isVisible: boolean;
@@ -11,7 +11,7 @@ type Props = PropsWithChildren<{
 export default function EmojiPicker({ isVisible, children, onClose }: Props) {
   return (
     <View>
-      <Modal animationType='slide' transparent={true} visible={isVisible}>
+      <Modal animationType='fade' transparent={true} visible={isVisible}>
         <View style={styles.modalContent}>
           <View style={styles.titleContainer}>
             <Text style={styles.title}>Choose a sticker</Text>
@@ -28,16 +28,16 @@ export default function EmojiPicker({ isVisible, children, onClose }: Props) {
 
 const styles = StyleSheet.create({
   modalContent: {
-    height: '25%',
+    height: '20%',
     width: '100%',
-    backgroundColor: '#25292e',
+    backgroundColor: '#256',
     borderTopRightRadius: 18,
     borderTopLeftRadius: 18,
     position: 'absolute',
     bottom: 0,
   },
   titleContainer: {
-    height: '16%',
+    height: '14%',
     backgroundColor: '#464C55',
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
