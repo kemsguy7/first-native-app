@@ -19,6 +19,26 @@ export default function EmojiSticker({ imageSize, stickerSource }: Props) {
     };
   });
 
+  // drag and drop functionalities starts here */
+
+  const drag = Gesture.Pan().onChange((event) => {
+    translateX.value += event.changeX;
+    translateY.value += event.changeY;
+  });
+
+  const containerStyle = useAnimatedStyle(() => {
+    return {
+      transform: [
+        {
+          translateX: translateX.value,
+        },
+        { translateY: translateY.value },
+      ],
+    };
+  });
+
+  // drag and drop functionalities ends here */
+
   const doubleTap = Gesture.Tap()
     .numberOfTaps(2)
     .onStart(() => {
@@ -30,14 +50,14 @@ export default function EmojiSticker({ imageSize, stickerSource }: Props) {
     });
 
   return (
-    <Animated.View style={{ top: -350 }}>
-      <GestureDetector gesture={doubleTap}>
+    <GestureDetector gesture={drag}>
+      <Animated.View style={[containerStyle, { top: -350 }]}>
         <Animated.Image
           source={stickerSource}
           resizeMode='contain'
           style={[imageStyle, { width: imageSize, height: imageSize }]}
         />
-      </GestureDetector>
-    </Animated.View>
+      </Animated.View>
+    </GestureDetector>
   );
 }
