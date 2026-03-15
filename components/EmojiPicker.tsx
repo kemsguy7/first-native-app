@@ -10,7 +10,7 @@ type Props = PropsWithChildren<{
 
 export default function EmojiPicker({ isVisible, children, onClose }: Props) {
   return (
-    <View>
+    <View style={styles.container}>
       <Modal animationType='fade' transparent={true} visible={isVisible}>
         <View style={styles.modalContent}>
           <View style={styles.titleContainer}>
@@ -27,6 +27,11 @@ export default function EmojiPicker({ isVisible, children, onClose }: Props) {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   modalContent: {
     height: '20%',
     width: '100%',
